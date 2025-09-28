@@ -49,12 +49,14 @@ function eloUpdate(winner, loser) {
 
 // Save Ratings back to Supabase
 async function saveRatings() {
-    const updates = [movieA, movieB].map(m => ({
-        Rating: m.Rating
-    }));
-
-    const { error } = await supabaseClient.from("movies").upsert(updates, { onConflict: "id" });
-    if (error) console.error("Error saving:", error);
+    // Update only existing rows by id
+    for (const m of [movieA, movieB]) {
+        const { error } = await supabaseClient
+            .from("movies")
+            .update({ Rating: m.Rating })
+            .eq("id", m.id);
+        if (error) console.error("Error saving:", error);
+    }
 }
 
 // Update leaderboard
