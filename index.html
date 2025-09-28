@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Elo System</title>
+  <style>
+    body { font-family: Arial; text-align: center; }
+    .movie { display: inline-block; margin: 20px; padding: 20px; border: 1px solid #ccc; cursor: pointer; width: 200px; }
+    .movie:hover { background-color: #f0f0f0; }
+    .poster { width: 150px; height: auto; }
+    h1 { margin-top: 20px; }
+    #leaderboard { margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <h1>Movie Elo Rating System</h1>
+  <div id="matchup">
+    <div id="movieA" class="movie"></div>
+    <div id="movieB" class="movie"></div>
+  </div>
+  <div id="leaderboard">
+    <h2>Leaderboard</h2>
+    <ul id="ratings"></ul>
+  </div>
+
+  <!-- Supabase client -->
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
+  <script type="module" src="script.js"></script>-
+</body>
+</html>
